@@ -1,5 +1,6 @@
 import 'package:advance_basics/quiz.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.switchScreen, {super.key});
@@ -19,12 +20,17 @@ class StartScreen extends StatelessWidget {
             color: const Color.fromARGB(150, 238, 229, 229),
           ),
           const SizedBox(height: 80),
-          const Text("Learn flutter the fun way!", style: TextStyle(color: Colors.white, fontSize: 24)),
+          Text("Learn flutter the fun way!", style: GoogleFonts.lato(
+              color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)
+          ),
           const SizedBox(height: 30),
           OutlinedButton.icon(
+              /*  onPressed: (){
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => const QuestionsScreen()));
+              }*/
               onPressed: switchScreen,
               style: OutlinedButton.styleFrom(foregroundColor: Colors.white, backgroundColor: Colors.blueGrey),
-              icon: Icon(Icons.arrow_right_alt),
+              icon: const Icon(Icons.arrow_right_alt),
               label: const Text('Start Quiz'))
         ],
       ),
