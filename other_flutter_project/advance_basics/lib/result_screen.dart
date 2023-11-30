@@ -60,7 +60,7 @@ class ResultScreen extends StatelessWidget {
              Icon(Icons.restart_alt_outlined, color: Colors.white),
              SizedBox(width: 8), // Add some spacing between icon and text
              Text(
-               'Restart Text',
+               'Restart Quiz',
                style: GoogleFonts.lato(
                  color: Colors.white,
                  fontSize: 18,
