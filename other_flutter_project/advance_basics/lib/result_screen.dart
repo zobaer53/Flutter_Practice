@@ -1,7 +1,10 @@
 import 'package:advance_basics/data/questions.dart';
+import 'package:advance_basics/home_page.dart';
 import 'package:advance_basics/queations_summary.dart';
+import 'package:advance_basics/quiz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.chosenAnswers});
@@ -36,15 +39,37 @@ class ResultScreen extends StatelessWidget {
        margin: const EdgeInsets.all(40),
          child:  Column(
            mainAxisAlignment: MainAxisAlignment.center,
-           crossAxisAlignment: CrossAxisAlignment.stretch,
+           crossAxisAlignment: CrossAxisAlignment.center,
      children: [
-        Text("You answered $numTotalQuestions out of $numCorrectQuestions questions correctly! ,"),
+        Text("You answered $numTotalQuestions out of $numCorrectQuestions questions correctly",
+            style: GoogleFonts.lato(
+                color: Colors.grey, fontSize: 18, fontWeight: FontWeight.bold),
+        textAlign: TextAlign.center,),
+
            SizedBox(height:30,),
       QuestionsSummary(summaryData: getSummaryData()),
        const SizedBox(height: 30,),
-         TextButton(
-           onPressed: () {},
-         child: const Text('Restart Text'),)
+
+       GestureDetector(
+         onTap: () {
+           Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Quiz()));
+         },
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.center,// Wrap icon and Text in a Row
+           children: [
+             Icon(Icons.restart_alt_outlined, color: Colors.white),
+             SizedBox(width: 8), // Add some spacing between icon and text
+             Text(
+               'Restart Text',
+               style: GoogleFonts.lato(
+                 color: Colors.white,
+                 fontSize: 18,
+                 fontWeight: FontWeight.bold,
+               ),
+             ),
+           ],
+         ),
+       ),
      ],
    ),
     ),
