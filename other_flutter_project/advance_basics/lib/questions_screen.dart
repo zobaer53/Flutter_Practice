@@ -16,7 +16,7 @@ class QuestionsScreen extends StatefulWidget {
   QuestionsScreen(this.onSelectAnswer, {Key? key}) : super(key: key);
 
   final void Function(String answer) onSelectAnswer;
-  final ChatGPTService chatGPTService = ChatGPTService(apiKey: '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');
+  final ChatGPTService chatGPTService = ChatGPTService(apiKey: 'api key');
 
   @override
   State<QuestionsScreen> createState() {
