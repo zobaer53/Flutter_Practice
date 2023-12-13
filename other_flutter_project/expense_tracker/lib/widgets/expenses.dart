@@ -23,6 +23,9 @@ class _ExpensesState extends State<Expenses> {
       context: context,
       builder:(ctx) => NewExpense( onExpense: addExpense,),
     );
+
+/*    Navigator.of(context).push(MaterialPageRoute(builder:
+        (context) => NewExpense( onExpense: addExpense))) ;*/
   }
 
   void addExpense(Expense expense){
@@ -54,6 +57,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final phoneWidth = MediaQuery.of(context).size.width;
+
     Widget mainContent = const Center(
       child: Text('No expenses found. Start adding some!'
       ),
@@ -70,16 +75,21 @@ class _ExpensesState extends State<Expenses> {
           IconButton(onPressed: _openAddExpanse, icon: Icon(Icons.add))
         ],
       ),
-      body: Column(
+      body: phoneWidth<600? Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 16),
-          child: Chart(expenses: _registerdExpenses,),
-        ), Expanded(
+        children: [
+          Chart(expenses: _registerdExpenses,),
+          Expanded(
             child: mainContent
     )
     ],
-      ),
+      ) : Row(
+        children: [
+         Expanded(child: Chart(expenses: _registerdExpenses,)),
+         Expanded(
+            child: mainContent
+        )
+        ],),
     );
   }
 }
