@@ -20,7 +20,8 @@ class ExpenseItem extends StatelessWidget{
          // mainAxisAlignment: MainAxisAlignment.start ,
           crossAxisAlignment: CrossAxisAlignment.start,
           children:[
-          Text("${expense.title.characters.first.toUpperCase()}${expense.title.substring(1,expense.title.length)}"),
+          Text("${expense.title.characters.first.toUpperCase()}${expense.title.substring(1,expense.title.length)}",
+          style: Theme.of(context).textTheme.titleLarge,),
           SizedBox(height: 4,),
           Row( 
             children:[
