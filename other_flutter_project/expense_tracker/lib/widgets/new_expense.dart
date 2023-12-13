@@ -37,20 +37,20 @@ class _NewExpenseState extends State<NewExpense> {
   }
 
   void _submitExpenseData(){
-    final entredAmount = double.tryParse(_amountController.text);
-    if(_titleController.text.trim().isEmpty || entredAmount == null || entredAmount <= 0.0 || _selectedDate == null){
-      showDialog(context: context, builder:(ctx)=> AlertDialog(title: Text('Invalid Input'),
-        content: Text('Please make sure a valid title, amount, date and category was entered. '),
+    final enteredAmount = double.tryParse(_amountController.text);
+    if(_titleController.text.trim().isEmpty || enteredAmount == null || enteredAmount <= 0.0 || _selectedDate == null){
+      showDialog(context: context, builder:(ctx)=> AlertDialog(title: const Text('Invalid Input'),
+        content: const Text('Please make sure a valid title, amount, date and category was entered. '),
         actions: [
           TextButton(onPressed: (){
             Navigator.pop(ctx);
-          }, child: Text('Okay'))
+          }, child: const Text('Okay'))
         ],
       )
       );
       return;
     }else{
-      widget.onExpense(Expense(title: _titleController.text, amount: entredAmount, date: _selectedDate!, category: _selectedCategory));
+      widget.onExpense(Expense(title: _titleController.text, amount: enteredAmount, date: _selectedDate!, category: _selectedCategory));
     Navigator.pop(context);
     }
   }
