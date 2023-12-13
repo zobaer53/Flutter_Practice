@@ -1,3 +1,4 @@
+import 'package:expense_tracker/widgets/chart/chart.dart';
 import 'package:expense_tracker/widgets/expenses_list/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:flutter/cupertino.dart';
@@ -73,7 +74,7 @@ class _ExpensesState extends State<Expenses> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 16),
-          child: Text("Charts"),
+          child: Chart(expenses: _registerdExpenses,),
         ), Expanded(
             child: mainContent
     )
